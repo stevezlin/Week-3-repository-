@@ -1,8 +1,27 @@
+
+# Lists of pages stored in dictionary
+
+pages = [
+	{ 
+	"filename": "content/index.html",
+	"output": "docs/index.html",
+	"title": "Meet Steve",
+	},
+	{ 
+	"filename": "content/projects.html",
+	"output": "docs/projects.html",
+	"title": "My future projects",
+	},
+	{ 
+	"filename": "content/contact.html",
+	"output": "docs/contact.html",
+	"title": "Contact me",
+	}
+]
+
+
 print ('Using functions and loops to combine pages')
 
-# Opening template HTML files
-top_html = open ('templates/top.html').read()
-bottom_html = open ('templates/bottom.html').read()
 
 # Using function to make template from top and bottom html
 
@@ -13,33 +32,23 @@ def main():
     open('templates/base.html', 'w+').write(base_html)
     print('Combined top and bottom html to create base.html')
 
-main()
     
+# combines base html with index and creates output file in docs
 
-    
+for page in pages:
+	top_html = open ('templates/top.html').read()
+	bottom_html = open ('templates/bottom.html').read()
+	content = open ('content/index.html').read()
+	index_html = top_html + content + bottom_html
+	open('docs/index.html', 'w+').write(index_html)
+	content = open(page['filename']).read()
+	combined = top_html + content + bottom_html
+	open(page['output'],'w+').write(combined)
+	
 
 
 
-
-# Combine index HTML with top and bottom templates
-
-
-index_html = top_html + index_html + bottom_html
-open('docs/index.html', 'w+').write(index_html)
-
-
-# Read project HTML file
-projects_html = open ('content/projects.html').read()
-
-# Combine project HTML with top and bottom html templates
-projects_html = top_html + projects_html + bottom_html
-open('docs/projects.html', 'w+').write(projects_html)
-
-# Read contact HTML file 
-contact_html = open ('content/contact.html').read()
-
-# Combine contact_html with top and bottom
-contact_html = top_html + contact_html + bottom_html
-open('docs/contact.html', 'w+').write(contact_html)
 
 print ('Finished combining HTML templates with conent')
+
+
