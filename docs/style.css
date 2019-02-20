@@ -1,0 +1,92 @@
+/*
+    Color scheme:
+    #7f00ae - royal purple
+    #a0ffbd  - light green
+*/
+
+
+/* Set up background with a background I got from Subtle Patterns, and the font
+** with a font I got from Google Fonts */
+body {
+    font-family: 'Alice', serif;
+    background: url('sand.jpg');
+}
+
+
+/* Here I set up the sidepanel that has the gradient sunset background image.  */
+.sidepanel {
+    background: url('portfolio_details.jpg') ;
+    min-height: 100vh;
+}
+
+/* Make the name (and all headers) look good */
+h1,
+h2,
+h3 {
+    font-family: 'Yellowtail', cursive;;
+}
+
+h1 {
+    font-size: 39pt;
+    font-weight: 100;
+}
+h1 span {
+    font-weight: 200;
+}
+
+
+/* Set up main content to the right */
+.rightpanel {
+    background: white;
+}
+
+/* I got this gradient from: https://uigradients.com/ */
+.blogpost {
+    border-top: #7f00ae solid 15px;
+    background: #ffeeee; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eee, #a0ffbd); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eee, #a0ffbd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 15px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+
+.project {
+   border-top: #7f00ae solid 15px;
+ 
+    background: -webkit-linear-gradient(to right, #eee, rgb(255, 255, 160));
+    background: linear-gradient(to right, #eee, #a0ffbd);
+    padding-top: 30px;
+    margin-top: 30px;
+}
+
+.aboutme {
+    border-top: #7f00ae solid 20px;
+  
+    background: linear-gradient(to right, #eee, #a0ffbd);
+    
+    padding-top: 30px;
+    font-size: 14pt;
+    padding: 20px;
+    margin: 20px;
+    
+}
+
+
+
+
+.nav-link 
+{
+    font-size: 30px;
+    border-bottom: solid 15px;
+    
+}
+
+.button
+{
+    font-size: 30px;
+    font-weight: 400
+    background: #0d00ae;
+    
+}

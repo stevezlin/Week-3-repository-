@@ -1,2 +1,2 @@
-# Week-3-repository-
-Using python commands (function, while loops and for loops)
+# week2HW
+using scripts in bash and python
