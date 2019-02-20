@@ -23,19 +23,29 @@ pages = [
 print ('Using functions and loops to combine pages')
 
 
-# Using function to make template from top and bottom html
+# function used to combine html
 
-def main():
-    top_html = open ('templates/top.html').read()
-    bottom_html = open ('templates/bottom.html').read()
-    base_html = top_html + bottom_html
-    open('templates/base.html', 'w+').write(base_html)
-    print('Combined top and bottom html to create base.html')
+def combine_template():
+	template = open("templates/base.html").read()
+	index_content = open("content/index.html").read()
+	finished_index_page = template.replace("{{content}}", index_content)
+	open("docs/index.html", "w+").write(finished_index_page)
+	return results
+	
+
+combine_template()
+
+
+	
+	
+
+	
+  
 
     
 # combines base html with index and creates output file in docs
 
-for page in pages:
+#for page in pages:
 	top_html = open ('templates/top.html').read()
 	bottom_html = open ('templates/bottom.html').read()
 	content = open ('content/index.html').read()
@@ -43,7 +53,7 @@ for page in pages:
 	open('docs/index.html', 'w+').write(index_html)
 	content = open(page['filename']).read()
 	combined = top_html + content + bottom_html
-	open(page['output'],'w+').write(combined)
+	open(page['output'],'w+').write(combined) 
 	
 
 
