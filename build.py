@@ -25,35 +25,31 @@ print ('Using functions and loops to combine pages')
 
 # function used to combine html
 
-def combine_template():
-	template = open("templates/base.html").read()
-	index_content = open("content/index.html").read()
-	finished_index_page = template.replace("{{content}}", index_content)
-	open("docs/index.html", "w+").write(finished_index_page)
-	return results
-	
-
-combine_template()
-
-
-	
-	
-
-	
-  
-
+def replace(template, title, file_name):
+    index_content = open(file_name).read()
+    finished_index_page = template.replace("{{content}}", index_content)
+    finished_index_page = finished_index_page.replace("{{title}}", title)
+    return finished_index_page
     
-# combines base html with index and creates output file in docs
+def create_page(template, page):
+    file_name = page['filename']
+    output = page['output']
+    title = page['title']
+    
+    
+    page_html = replace(template, title, file_name)
+    open(output, "w+").write(page_html)
+    
+def main():
+    template = open("templates/base.html").read()
+    for page in pages:
+        create_page(template, page)
+    
+if __name__ == "__main__":
+    main()
 
-#for page in pages:
-	top_html = open ('templates/top.html').read()
-	bottom_html = open ('templates/bottom.html').read()
-	content = open ('content/index.html').read()
-	index_html = top_html + content + bottom_html
-	open('docs/index.html', 'w+').write(index_html)
-	content = open(page['filename']).read()
-	combined = top_html + content + bottom_html
-	open(page['output'],'w+').write(combined) 
+
+
 	
 
 
